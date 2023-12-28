@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.joaquin.springboot.di.app.springbootdi.models.Product;
 
-import com.joaquin.springboot.di.app.springbootdi.services.IProductoService;
+import com.joaquin.springboot.di.app.springbootdi.services.IProductService;
 
 
 @RestController
@@ -18,7 +18,7 @@ import com.joaquin.springboot.di.app.springbootdi.services.IProductoService;
 public class SomeController {
 
     @Autowired
-    private IProductoService service; //En esencia deberia ser IPorducto service, pero como aplica los mismos metodos lo puse así
+    private IProductService service; 
     // Se tiene que hacer una copia de todos los valores que se manden desde el servicio para asegurarse de que los datos no se mantengan modificados.
 
     @GetMapping
