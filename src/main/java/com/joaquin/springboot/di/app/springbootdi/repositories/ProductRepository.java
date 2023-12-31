@@ -12,6 +12,7 @@ import com.joaquin.springboot.di.app.springbootdi.models.Product;
 //@RequestScope //hace que los datos no sean singleton(que comparten todos los usuarios), sino que lo hace por usuario
 //@Component Es por defecto un componente singleton, lo que quiere decir es que esta instancia se comparte con todos los usuarios
 //@SessionScope //Existe el arreglo o los datos durante toda la sesion http, mas que nbada para aplicaciones web, cuando se cierra la pestaña del navegador
+//@AplicationScope Es como el singleton, es compartido por todos los usuarios de la sesion, es para cuando tenemos varias aplicaciones desplegadas en tomcat, y podrian compartir cierto objeto dentro de las diferentes aplicaciones springboot, es más ampllio que el singleton
 @Repository
 public class ProductRepository implements IProductRepository{
     
