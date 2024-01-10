@@ -17,7 +17,7 @@ public class ProductRepositoryJson implements IProductRepository{
 
     public ProductRepositoryJson(){ //Maneras de acceder a los datos del json dentro del proyecto
         ClassPathResource resource = new ClassPathResource("json/product.json");
-        ObjectMapper objectMapper = new ObjectMapper(); //nos permite convertir un archivo json en una clase de java
+        ObjectMapper objectMapper = new ObjectMapper(); //Nos permite convertir un archivo json en una clase de java
         try {
             list = Arrays.asList(objectMapper.readValue(resource.getFile(), Product[].class));
         } catch (StreamReadException e) {
