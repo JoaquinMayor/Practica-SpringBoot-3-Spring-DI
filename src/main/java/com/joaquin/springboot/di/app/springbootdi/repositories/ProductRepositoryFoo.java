@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.joaquin.springboot.di.app.springbootdi.models.Product;
 
-//@Primary //Hace que sea elejido cuando se hace el llamado en el servicio porque llamaba al interface, solo una puede tener el primary
+//@Primary //Hace que sea elegido cuando se hace el llamado en el servicio porque llamaba al interface, solo una puede tener el primary
 @Repository
 public class ProductRepositoryFoo implements IProductRepository{
 

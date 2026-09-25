@@ -15,19 +15,19 @@ import com.joaquin.springboot.di.app.springbootdi.repositories.IProductRepositor
 @Service
 public class ProductService implements IProductService{
     
-    @Qualifier("productRepository")//determina cual de los injterface utilizar cuando otro esta marcado como primary, la primera letra siempre en minuscula
-    @Autowired //Lo que hace es que se le atribuye una instancia singleton de esta clase, sin tener ponerle un new repository, me gusta mas acalarar en vez del servicio que se puede hacer con la clase propiamente dicha
+    @Qualifier("productRepository")//determina cuál de los interface utilizar cuando otro está marcado como primary, la primera letra siempre en minúscula
+    @Autowired //Lo que hace es que se le atribuye una instancia singleton de esta clase, sin tener que ponerle un new repository, me gusta más aclarar en vez del servicio que se puede hacer con la clase propiamente dicha
     private IProductRepository repository;
-    //Se puede hacer la inyeccion tambien poniendo un seter y el autowired arriba del setter o con un constructor sin el autowired
+    //Se puede hacer la inyección también poniendo un setter y el autowired arriba del setter o con un constructor sin el autowired
 
     @Value("${value.tax}")
     private Double tax;
     
     public List<Product> findAll(){
         
-        return repository.findAll().stream().map(p->{ //Lo hace un stream para hacer el map y poder hacer la funcion flecha
+        return repository.findAll().stream().map(p->{ //Lo hace un stream para hacer el map y poder hacer la función flecha
             Double priceTax = p.getPrice() * tax;
-           // Product newProd = new Product(p.getId(), p.getName(), priceImp.longValue()); creamos una copia asi podemos usarlo en el controlador
+           // Product newProd = new Product(p.getId(), p.getName(), priceImp.longValue()); creamos una copia así podemos usarlo en el controlador
             Product newProd =(Product) p.clone();
             newProd.setPrice(priceTax.longValue());
             return newProd;
